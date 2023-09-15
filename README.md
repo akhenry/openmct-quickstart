@@ -32,3 +32,14 @@ Hosted websites are available at the following URLs:
 * The YAMCS web application is served from http://localhost:8040/yamcs
 * The Apache server status is served from http://localhost:8040/server-status
 * The CouchDB web application is served from http://localhost:8040/couchdb/_utils (with username `admin` and password `password`)
+
+## Authentication
+
+This branch includes the basic configuration necessary to integrate Open MCT with Yamcs based authentication. To run with authentication enabled just follow the instructions above.
+
+There are several configuration files that enable authentication:
+
+* `apache/openmct.conf` - Apache configuration that inserts a necessary header to prompt the browser to show a login dialog
+* `yamcs/security.yaml` - Enables the `YAML AuthModule` which authenticates users defined in a local `users.yaml` file. In principle Open MCT auth should also work with the Yamcs LDAP auth module, but this has never been tested.
+* `yamcs/users.yaml` - Yamcs user definitions. See https://docs.yamcs.org/yamcs-server-manual/security/authmodules/yaml/
+* `yamcs/roles.yaml` - Yamcs role definitions. See https://docs.yamcs.org/yamcs-server-manual/security/configuration/
