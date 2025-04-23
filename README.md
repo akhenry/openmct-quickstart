@@ -55,3 +55,20 @@ graph TD
     click C "http://localhost:8040/couchdb/_utils" "CouchDB"
     click D "http://localhost:8040/yamcs" "YAMCS"
     click A "http://localhost:8040/server-status" "Apache Server Status"
+
+## Frequently Asked Questions
+### How do I modify the Open MCT configuration, for example, to reference a different Yamcs instance?
+From the `openmct-quickstart` directory on your host machine:
+1. Edit `openmct/openmct-quickstart.js`
+2. `docker compose down -v openmct`
+3. `docker compose up openmct`
+The key thing to note here is the `-v` flag. It is necessary to recreate a volume that contains the Open MCT configuration, otherwise it will continue to use a cached version even after you change it.
+### I want to expose Yamcs ports to the outside world so that I can feed telemetry in from an external system
+From the `openmct-quickstart` directory on your host machine:
+1. Edit `docker-compose.yaml`
+2. Add a `ports` block to the `yamcs` section per the Docker guidance on this topic - https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/#use-docker-compose
+eg.
+```
+ports:
+    - "10015:10015/udp"
+```
