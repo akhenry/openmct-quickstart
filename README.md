@@ -70,6 +70,7 @@ From the `openmct-quickstart` directory on your host machine:
 2. Add a `ports` block to the `yamcs` section per the Docker guidance on this topic - https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/#use-docker-compose
 eg.
 ```
-ports:
-    - "10015:10015/udp"
+  yamcs:
+    ports:
+        - "10015:10015/udp"
 ```
