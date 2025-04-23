@@ -55,6 +55,7 @@ graph TD
     click C "http://localhost:8040/couchdb/_utils" "CouchDB"
     click D "http://localhost:8040/yamcs" "YAMCS"
     click A "http://localhost:8040/server-status" "Apache Server Status"
+```
 
 ## Frequently Asked Questions
 ### How do I modify the Open MCT configuration, for example, to reference a different Yamcs instance?
